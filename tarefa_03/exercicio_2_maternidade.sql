@@ -4,10 +4,10 @@ GO
 USE mecanica; --- Utiliza o dominio criado
 GO
 CREATE TABLE cliente( --- Cria tabela de clientes
-id				INT				NOT NULL IDENTITY(3401,15),----auto incremento começa em 3401 e vai prosseguindo de 15 em 15
+id				INT				NOT NULL IDENTITY(3401,15),----auto incremento comeÃ§a em 3401 e vai prosseguindo de 15 em 15
 nome			VARCHAR(100)	NOT NULL,
 logradouro		VARCHAR(200)	NOT NULL,
-numero			INT				NOT NULL CHECK(numero > 0), -- Verifica se o numero é positivo
+numero			INT				NOT NULL CHECK(numero > 0), -- Verifica se o numero Ã© positivo
 cep				CHAR(8)			NOT NULL CHECK(LEN(cep)= 8), --- Verifica se o cep tem 8 digitos
 complemento		VARCHAR(255)	NOT NULL
 PRIMARY KEY(id)
@@ -15,7 +15,7 @@ PRIMARY KEY(id)
 GO
 CREATE TABLE telefone_cliente(
 cliente_id		INT				NOT NULL,
-telefone		VARCHAR(11)		NOT NULL CHECK(LEN(telefone) = 10 OR LEN(telefone) = 11) -- Verifica se o telefone é fixo (10 digitos) ou celular(11 digitos)
+telefone		VARCHAR(11)		NOT NULL CHECK(LEN(telefone) = 10 OR LEN(telefone) = 11) -- Verifica se o telefone Ã© fixo (10 digitos) ou celular(11 digitos)
 PRIMARY KEY(cliente_id,telefone)
 FOREIGN KEY(cliente_id) REFERENCES cliente(id)
 )
@@ -32,7 +32,8 @@ cliente_id		INT				NOT NULL
 PRIMARY KEY(placa),
 FOREIGN KEY(cliente_id) REFERENCES cliente(id),
 CONSTRAINT ano_modelo_fabricao
-							CHECK(ano_fabricacao > 1997 AND ano_modelo >= ano_fabricacao)
+							CHECK(ano_fabricacao > 1997) 
+							CHECK(ano_modelo = ano_fabricacao OR ano_modelo = ano_fabricacao + 1)
 )
 GO
 CREATE TABLE peca (
@@ -46,17 +47,17 @@ GO
 CREATE TABLE categoria (
 id				INT				NOT NULL IDENTITY(1,1),
 categoria_nome	VARCHAR(10)		NOT NULL,
-valor_hora		DECIMAL(4,2)	NOT NULL
+valor_hora		DECIMAL(4,2)	NOT NULL   CHECK(valor_hora >= 0.00),
 PRIMARY KEY(id),
 CONSTRAINT valor_hora_categoria
 							CHECK(
-							   (UPPER(categoria_nome) = 'ESTAGIÁRIO' 
+							   (UPPER(categoria_nome) = 'ESTAGIÃRIO' 
 							AND valor_hora > 15) 
-							OR (UPPER(categoria_nome) = 'NÍVEL 1' 
+							OR (UPPER(categoria_nome) = 'NÃVEL 1' 
 							AND valor_hora > 25)
-							OR (UPPER(categoria_nome) = 'NÍVEL 2'
+							OR (UPPER(categoria_nome) = 'NÃVEL 2'
 							AND valor_hora > 35)
-							OR (UPPER(categoria_nome) = 'NÍVEL 3'
+							OR (UPPER(categoria_nome) = 'NÃVEL 3'
 							AND valor_hora > 50))
 
 )
@@ -66,7 +67,7 @@ id						INT				NOT NULL IDENTITY(101,1),
 nome					VARCHAR(100)	NOT NULL,
 logradouro				VARCHAR(200)    NOT NULL,
 numero					INT				NOT NULL CHECK(numero > 0),
-telefone				CHAR(11)		NOT NULL CHECK(LEN(telefone) = 10 OR LEN(telefone) = 11), -- Verifica se o telefone é fixo(10) ou celular(11)
+telefone				CHAR(11)		NOT NULL CHECK(LEN(telefone) = 10 OR LEN(telefone) = 11), -- Verifica se o telefone Ã© fixo(10) ou celular(11)
 categoria_habilitacao	VARCHAR(2)		NOT NULL ,
 categoria_id			INT				NOT NULL
 PRIMARY KEY(id),
@@ -85,9 +86,9 @@ CREATE TABLE reparo(
 veiculo_placa	CHAR(7)			NOT NULL,
 funcionario_id	INT				NOT NULL,
 peca_id			INT				NOT NULL,
-data_reparo		DATE			NOT NULL  DEFAULT('15/10/2024'), -- Caso não seja preenchido, coloca a data de hoje
-custo_total		DECIMAL(4,2)	NOT NULL,
-tempo			INT				NOT NULL
+data_reparo		DATE			NOT NULL  DEFAULT('15/10/2024'), -- Caso nÃ£o seja preenchido, coloca a data de hoje
+custo_total		DECIMAL(4,2)	NOT NULL  CHECK(custo_total >= 0.00),
+tempo			INT				NOT NULL   CHECK(tempo > 0),
 PRIMARY KEY(veiculo_placa,funcionario_id,peca_id,data_reparo)
 FOREIGN KEY(veiculo_placa) REFERENCES veiculo(placa),
 FOREIGN KEY(funcionario_id) REFERENCES funcionario(id),
