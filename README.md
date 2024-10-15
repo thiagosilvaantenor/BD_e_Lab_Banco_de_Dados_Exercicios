@@ -36,6 +36,7 @@ Exercicios de SQL da aula de Banco de dados, o SGBD utilizado foi Microsoft SQLS
 Tarefa:
 - [Tarefa 1](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_01)
 - [Tarefa 2](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_02)
+- [Tarefa 3](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_03)
 
 ## Agradecimentos
 Agradeço ao professor Leandro Colevati e todos os professores da FATEC Zona Leste por todo o aprendizado passado e desafios propostos.
