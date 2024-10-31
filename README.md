@@ -37,6 +37,10 @@ Tarefa:
 - [Tarefa 1](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_01)
 - [Tarefa 2](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_02)
 - [Tarefa 3](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_03)
+- [Tarefa 4](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_04)
+- [Tarefa 5](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_05)
+- [Tarefa 6](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_06)
+- [Tarefa 7](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_07)
 
 ## Agradecimentos
 Agradeço ao professor Leandro Colevati e todos os professores da FATEC Zona Leste por todo o aprendizado passado e desafios propostos.
