@@ -31,7 +31,7 @@ Exercicios de SQL da aula de Banco de dados, o SGBD utilizado foi Microsoft SQLS
   - [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)  
 
 # Status do projeto
-🚧Em andamento 🚧
+✅Completo✅
 
 Tarefa:
 - [Tarefa 1](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_01)
