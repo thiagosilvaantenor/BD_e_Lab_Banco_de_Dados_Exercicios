@@ -1,5 +1,9 @@
 # Exercícios de Banco de dados SQL
 
+`Repositório com os exercícios de SQL da disciplina de Banco de dados, cada tarefa contem um readme com o enunciado do exercício.`
+
+`Conteúdos vistos: Criação e modificação de databases, DDL - Data Definition Language , Alteração e exclusão de dados (UPDATE e DELETE), formatação de dados em SELECTs, formatação de datas, funções de agrupamento(INNER JOIN, LEFT e RIGHT JOIN) e agregação(MAX, MIN, COUNT, AVG)`
+
 <div align="center">
   
 ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)
