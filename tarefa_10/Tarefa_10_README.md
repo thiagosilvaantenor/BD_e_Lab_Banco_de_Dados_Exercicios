@@ -1,5 +1,10 @@
 # Revisão SQL: INNER e OUTER JOINS, Formatação em SELECT e funções de agregações
 
+## Diagrama:
+
+<img alt="diagrama" src="https://github.com/user-attachments/assets/744195be-621f-4e1d-a5b5-909807d269d2" />
+
+
 ## Enunciados:
 
 1. Consultar a quantidade, valor total e valor total com desconto (25%) dos itens comprados por Maria Clara.
