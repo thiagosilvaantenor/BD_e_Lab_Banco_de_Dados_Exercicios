@@ -1,5 +1,7 @@
 # SELECT com CASE e SubConsultas/Queries
 
+## Exercício 1:
+
 ## Diagrama e constraints:
 
 ![image](https://github.com/user-attachments/assets/194d344d-89c6-428f-9104-fe9ecf47ed53)
@@ -23,3 +25,4 @@ projeto de nome Auditoria
 4. Considerando que o custo diário do projeto, cujo nome tem o termo Manutenção, é de 79.85 
 e ele deve finalizar 16/09/2014, consultar, nome, descrição, data, data_final e custo_total do 
 projeto
+
