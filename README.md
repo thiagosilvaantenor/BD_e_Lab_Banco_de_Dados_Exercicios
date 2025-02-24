@@ -1,12 +1,32 @@
 # Exercícios de Banco de dados SQL
 
-`Repositório com os exercícios de SQL da disciplina de Banco de dados, cada tarefa contem um readme com o enunciado do exercício.`
+`Repositório com os exercícios de SQL das disciplinas:`
+- `Banco de dados(2024),`
+- `Laboratório de Banco de Dados(2025).`<br>
 
-`Conteúdos vistos: Criação e modificação de databases, DDL - Data Definition Language , Alteração e exclusão de dados (UPDATE e DELETE), formatação de dados em SELECTs, formatação de datas, funções de agrupamento(INNER JOIN, LEFT e RIGHT JOIN) e agregação(MAX, MIN, COUNT, AVG)`
+`Cada tarefa contém um readme ou pdf com o enunciado do exercício.`
 
 <div align="center">
   
-![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)
+<h3> Banco de dados (2024) </h3>
+  
+![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)  
+
+</div>
+
+`Conteúdos vistos:` 
+- `Criação e modificação de databases,`
+- `DDL - Data Definition Language,`
+- `Alteração e exclusão de dados (UPDATE e DELETE),`
+- `Formatação de dados em SELECTs,`
+- `Formatação de datas, funções de agrupamento(INNER JOIN, LEFT e RIGHT JOIN)`
+- `Agregação(MAX, MIN, COUNT, AVG).`
+
+<div align="center">
+  
+<h3> Laboratório de Banco de Dados (2025) </h3>
+  
+![MySQL Badge](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
 </div>
 
@@ -31,26 +51,31 @@ Exercicios de SQL da aula de Banco de dados, o SGBD utilizado foi Microsoft SQLS
   - [SQL](https://www.w3schools.com/sql/)
 - SGBD
   - [SQL SERVER 2019](https://www.microsoft.com/pt-br/sql-server/sql-server-2019)
+  - [SQL]
 - IDE
   - [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)  
 
 # Status do projeto
-✅Completo✅
+✅ Disciplina de Banco de dados(2024) Completo ✅
 
 Tarefa:
-- [Tarefa 1](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_01)
-- [Tarefa 2](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_02)
-- [Tarefa 3](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_03)
-- [Tarefa 4](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_04)
-- [Tarefa 5](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_05)
-- [Tarefa 6](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_06)
-- [Tarefa 7](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_07)
-- [Tarefa 8](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_08)
-- [Tarefa 9](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_09)
-- [Tarefa 10](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/tarefa_10)
+- [Tarefa 1](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_01)
+- [Tarefa 2](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_02)
+- [Tarefa 3](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_03)
+- [Tarefa 4](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_04)
+- [Tarefa 5](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_05)
+- [Tarefa 6](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_06)
+- [Tarefa 7](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_07)
+- [Tarefa 8](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_08)
+- [Tarefa 9](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_09)
+- [Tarefa 10](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_10)
+
+🚧 Disciplina de Laboratório de Banco de dados(2025) Em andamento 🚧
+- [Tarefa 1](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_01)
 
 ## Agradecimentos
-Agradeço ao professor Leandro Colevati e todos os professores da FATEC Zona Leste por todo o aprendizado passado e desafios propostos.
+Agradeço aos professores: <strong> Leandro Colevati (da disciplina de Banco de dados)</strong>,<strong> Joilson de Souza Cardoso (da disciplina de Laboratório de Banco de Dados)</strong><br>
+e a todos os professores da FATEC Zona Leste por todo o aprendizado passado e desafios propostos.
 
 ## Autor
 
