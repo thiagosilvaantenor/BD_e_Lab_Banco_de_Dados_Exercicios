@@ -204,8 +204,9 @@ INSERT INTO disciplina (codDepto, numDisc, nomeDisc, creditoDisc) VALUES
 ('INF01', 6, 'GPP', 100);
 
 INSERT INTO preReq (codDeptoPreReq, numDiscPreReq, codDepto, numDisc) VALUES
-('INF01', 3, 'INF01', 4);
-
+('INF01', 3, 'INF01', 4),
+('INF01', 3, 'INF02', 6),
+('INF01', 4, 'INF02', 6);
 
 INSERT INTO turma (anoSem, codDepto, numDisc, siglaTur, capacTur) VALUES
 (20241,'0001A', 1, 'TA', 40),
@@ -254,10 +255,14 @@ INSERT INTO horario(anoSem, codDepto, numDisc, siglaTur, diaSem, horaInicio, num
 (20021, 'INF02', 6, 'TA', 2, 0800, 12, 1, 2),
 (20021, 'INF02', 6, 'TN', 6, 1900, 101, 43423, 4),
 (20021, 'INF01', 6, 'TX', 3, 1900, 12, 1, 4);
+
+
+
 -- Lista de Exercícios, fazer em stored procedures com cursor
 -- 1. Obter os códigos dos diferentes departamentos que tem turmas no ano-semestre 2002/1  
 
 DELIMITER //
+
 CREATE PROCEDURE obter_cod_depto_tem_turma_2002_01()
 BEGIN
 	-- variaveis
@@ -269,12 +274,14 @@ BEGIN
 		INNER JOIN disciplina disc
 		ON dp.codDepto = disc.codDepto
 		INNER JOIN turma t
-		ON disc.NumDisc = t.NumDisc
+		ON t.numDisc = disc.numDisc
+        AND t.codDepto = disc.codDepto
 		WHERE t.anoSem = 20021;
         
 	-- função para lidar com o NOT FOUND
 	DECLARE CONTINUE HANDLER FOR NOT FOUND SET final = TRUE;
-    
+	-- cria uma tabela temporaria para colocar os dados e depois ler eles
+    CREATE TEMPORARY TABLE tb_cod( codDepto CHAR(05));
 	-- Executa o CURSOR
     OPEN codDepto_cursor;
     
@@ -284,8 +291,6 @@ BEGIN
         IF final THEN
 			LEAVE read_loop;
 		END IF;
-	-- cria uma tabela temporaria para colocar os dados e depois ler eles
-		CREATE TEMPORARY TABLE IF NOT EXISTS tb_cod( codDepto CHAR(05));
 		INSERT INTO tb_cod (codDepto) VALUES (cod);
 	END LOOP;
     -- Exibe o resultado do cursor na tabela temporaria;
@@ -309,12 +314,18 @@ BEGIN
     DECLARE final BOOLEAN DEFAULT FALSE;
     
     DECLARE codProf_cursor CURSOR FOR
-		SELECT codProf from profturma profT
-		where profT.codDepto = 'INF01' AND profT.anoSem = 20021;
+		SELECT DISTINCT p.codProf from profturma profT
+        INNER JOIN professor p ON profT.codProf = p.codProf
+        INNER JOIN turma t ON profT.anoSem = t.anoSem
+						   AND profT.codDepto = t.codDepto
+						   AND profT.numDisc = t.numDisc
+                           AND profT.siglaTur = t.siglaTur
+		where p.codDepto = 'INF01' AND profT.anoSem = 20021;
 	
     -- função para lidar com o NOT FOUND
 	DECLARE CONTINUE HANDLER FOR NOT FOUND SET final = TRUE;
-    
+	-- cria uma tabela temporaria para colocar os dados e depois ler eles
+	CREATE TEMPORARY TABLE tb_cod( codProf INT);
 	-- Executa o CURSOR
     OPEN codProf_cursor;
     
@@ -323,8 +334,6 @@ BEGIN
         IF final THEN
 			LEAVE read_loop;
 		END IF;
-		-- cria uma tabela temporaria para colocar os dados e depois ler eles
-		CREATE TEMPORARY TABLE IF NOT EXISTS tb_cod( codProf INT);
 		INSERT INTO tb_cod (codProf) VALUES (cod);
 	END LOOP;
     
@@ -342,43 +351,44 @@ CALL codProf_Depto_INF01_AnoSem_20021();
 DELIMITER //
 CREATE PROCEDURE obter_horarios_prof_antunes_2002_1()
 	BEGIN
-		DECLARE diaSem INT;
-        DECLARE horaInicio INT;
-        DECLARE numHoras INT;
+		DECLARE _diaSem INT;
+        DECLARE _horaInicio INT;
+        DECLARE _numHoras INT;
         DECLARE final BOOLEAN DEFAULT FALSE;
         
         DECLARE horario_cursor CURSOR FOR
 			SELECT h.diaSem, h.horaInicio, h.numHoras from horario h
-			INNER JOIN turma t
-			ON h.anoSem = t.anoSem AND h.codDepto = t.codDepto AND h.numDisc = t.numDisc AND h.siglaTur = t.siglaTur
-			INNER JOIN profTurma profT
-			ON profT.anoSem = t.anoSem AND profT.codDepto = t.codDepto AND profT.numDisc = t.numDisc AND profT.siglaTur = t.siglaTur
-			INNER JOIN professor prof
-			ON profT.codProf = prof.codProf
+			INNER JOIN turma t ON h.anoSem = t.anoSem 
+							   AND h.codDepto = t.codDepto 
+							   AND h.numDisc = t.numDisc 
+                               AND h.siglaTur = t.siglaTur
+			INNER JOIN profTurma profT ON profT.anoSem = t.anoSem 
+									   AND profT.codDepto = t.codDepto
+                                       AND profT.numDisc = t.numDisc
+                                       AND profT.siglaTur = t.siglaTur
+			INNER JOIN professor prof ON profT.codProf = prof.codProf
 			WHERE prof.nomeProf = 'Antunes' AND h.anoSem = 20021;
             
 		    -- função para lidar com o NOT FOUND
 		DECLARE CONTINUE HANDLER FOR NOT FOUND SET final = TRUE;
-        
+		CREATE TEMPORARY TABLE tb_horario(t_diaSem INT, t_horaInicio INT, t_numHoras INT);
         OPEN horario_cursor;
         
         laco_de_leitura: LOOP
-			FETCH horario_cursor INTO diaSem, horaInicio, numHoras;
+			FETCH horario_cursor INTO _diaSem, _horaInicio, _numHoras;
             IF final THEN
 				LEAVE laco_de_leitura;
 			END IF;
-            
-            CREATE TEMPORARY TABLE IF NOT EXISTS tb_horario(t_diaSem INT, t_horaInicio INT, t_numHoras INT);
-            INSERT INTO tb_horario(t_diaSem, t_horaInicio, t_numHoras) VALUES(diaSem, horaInicio, numHoras);
+            INSERT INTO tb_horario(t_diaSem, t_horaInicio, t_numHoras) VALUES( _diaSem, _horaInicio, _numHoras);
 		END LOOP;
         
-        SELECT diaSem, horaInicio, numHoras FROM tb_horario;
+        SELECT t_diaSem, t_horaInicio, t_numHoras FROM tb_horario;
         
         DROP TEMPORARY TABLE tb_horario;
         CLOSE horario_cursor;
 	END//
     DELIMITER ;
-    
+
     CALL obter_horarios_prof_antunes_2002_1();
 	
 -- 4.Obter os códigos dos professores com título denominado 'Doutor' que não ministraram aulas em 2002/1.
@@ -591,13 +601,17 @@ CREATE PROCEDURE obter_nomeProf_disciplina_horario_conflitante()
 			profT2.codDepto AS codDepto2,
 			profT2.numDisc AS numDisc2,
 			profT2.siglaTur AS siglaTur2
-			 
+	
 			FROM profTurma profT1
+            -- H1
 			INNER JOIN horario h1 ON profT1.anoSem = h1.anoSem 
 								AND profT1.codDepto = h1.codDepto 
 								AND profT1.numDisc = h1.numDisc 
 								AND profT1.siglaTur = h1.siglaTur
+                                
+			-- SELF JOIN, junção da mesma tabela
 			INNER JOIN profTurma profT2 ON profT1.codProf = profT2.codProf
+            -- H2
 			INNER JOIN horario h2 ON profT2.anoSem = h2.anoSem 
 								AND profT2.codDepto = h2.codDepto 
 								AND profT2.numDisc = h2.numDisc 
@@ -615,7 +629,7 @@ CREATE PROCEDURE obter_nomeProf_disciplina_horario_conflitante()
 					profT1.numDisc != profT2.numDisc OR
 					profT1.siglaTur != profT2.siglaTur
 				)
-				-- Elimina repetições espelhadas
+				-- Elimina repetições espelhadas, vai juntar os dados e comparar (INF013TN < INF016TX = TRUE | INF016TX < INF013TN = FALSE)
 				AND (
 					CONCAT(profT1.codDepto, profT1.numDisc,  profT1.siglaTur) <
 					CONCAT(profT2.codDepto, profT2.numDisc,  profT2.siglaTur)
@@ -662,13 +676,14 @@ CREATE PROCEDURE obter_nomeDisc_nomDiscPreReq()
 			INNER JOIN preReq pr1 ON pr1.codDepto = d1.codDepto
 								  AND pr1.numDisc = d1.numDisc
 			-- D2
+            -- Disciplina que será preRequisito, aparecerá como pkPreReq
 			INNER JOIN disciplina d2 ON pr1.codDeptoPreReq = d2.codDepto
 									AND pr1.numDiscPreReq = d2.numDisc
 			WHERE 
-			-- TEM PRE REQ? 
+			-- TEM PRE REQ? Então vai aparecer como disciplina
 			d1.codDepto = pr1.codDepto 
 			AND d1.numDisc = pr1.numDisc
-			-- GARANTE QUE SÃO Disciplinas distintas
+			-- Garante que são disciplinas distintas (ADM != SI)
 			AND d1.numDisc != d2.numDisc;
 		
         DECLARE CONTINUE HANDLER FOR NOT FOUND SET final = TRUE;
@@ -722,9 +737,39 @@ DELIMITER ;
 CALL obter_nomeDisc_sem_preReq();
 
 
-/* .  
-  
+-- 11.Obter o nome de cada disciplina que possui ao menos dois pré-requisitos.
+DELIMITER //
+CREATE PROCEDURE obter_nomeDisc_com_mais_1_preReq()
+	BEGIN
+		DECLARE _nomeDisc VARCHAR(10);
+        DECLARE final BOOLEAN DEFAULT FALSE;
+        DECLARE preReqCursor CURSOR FOR
+				SELECT d.nomeDisc FROM disciplina d
+				INNER JOIN preReq pr ON pr.codDepto = d.codDepto
+									  AND pr.numDisc = d.numDisc
+				WHERE -- TEM PRE REQ? 
+				d.codDepto = pr.codDepto 
+				AND d.numDisc = pr.numDisc
+				GROUP BY d.nomeDisc
+				HAVING COUNT(pr.numDisc) > 1;
+		
+        DECLARE CONTINUE HANDLER FOR NOT FOUND SET final = TRUE;
+		CREATE TEMPORARY TABLE tb_preReq(t_nomeDisc VARCHAR(10));
+		OPEN preReqCursor;
+        laco_leitura: LOOP
+			FETCH preReqCursor INTO _nomeDisc;
+            IF (final = TRUE) THEN
+				LEAVE laco_leitura;
+			END IF;
+            INSERT INTO tb_preReq(t_nomeDisc) VALUES ( _nomeDisc);
+		END LOOP;
+		SELECT t_nomeDisc FROM tb_preReq;
+        DROP TEMPORARY TABLE tb_preReq;
+        CLOSE preReqCursor;
+END//
+DELIMITER ;
+CALL obter_nomeDisc_com_mais_1_preReq();
 
-
-11.Obter o nome de cada disciplina que possui ao menos dois pré-requisitos.  */
+            
+            
 

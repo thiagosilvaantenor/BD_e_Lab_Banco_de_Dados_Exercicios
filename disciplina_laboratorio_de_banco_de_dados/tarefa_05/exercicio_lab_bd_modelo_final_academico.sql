@@ -87,25 +87,25 @@ CREATE TABLE Predio(
 -- PRIMARY KEY E FOREIGN KEYS
 -- Depto
 ALTER TABLE Depto
-ADD CONSTRAINT PK_tb_depto
+ADD CONSTRAINT PK_TB_depto
 PRIMARY KEY (codDepto);
 
 -- titulacao
 ALTER TABLE titulacao
-ADD CONSTRAINT PK_tb_titulacao
+ADD CONSTRAINT PK_TB_titulacao
 PRIMARY KEY (codTit);
 
 -- Professor
 ALTER TABLE professor
-ADD CONSTRAINT PK_tb_professor
+ADD CONSTRAINT PK_TB_professor
 PRIMARY KEY(codProf);
 
 ALTER TABLE professor
-ADD CONSTRAINT FK_tb_professor_titulacao
+ADD CONSTRAINT FK_TB_professor_TB_titulacao
 FOREIGN KEY(codTit) REFERENCES titulacao(codTit);
 
 ALTER TABLE professor
-ADD CONSTRAINT FK_tb_professor_depto
+ADD CONSTRAINT FK_TB_professor_TB_depto
 FOREIGN KEY(codDepto) REFERENCES depto(codDepto);
 
 -- Disciplina
@@ -114,21 +114,21 @@ ADD CONSTRAINT PK_tb_disciplina
 PRIMARY KEY(codDepto, numDisc);
 
 ALTER TABLE disciplina
-ADD CONSTRAINT FK_tb_disciplina_tb_depto
+ADD CONSTRAINT FK_TB_disciplina_TB_depto
 FOREIGN KEY(codDepto) REFERENCES depto(codDepto);
 
 -- PreReq
 ALTER TABLE PreReq
-ADD CONSTRAINT PK_tb_preReq
+ADD CONSTRAINT PK_TB_preReq
 PRIMARY KEY(codDeptoPreReq, numDiscPreReq, codDepto, NumDisc);
 
 ALTER TABLE PreReq
-ADD CONSTRAINT FK_PREREQ_EH_DISCIPLINA
+ADD CONSTRAINT FK_TB_preReq_TB_Disciplina
 FOREIGN KEY(codDepto, numDisc) 
 REFERENCES Disciplina(codDepto, NumDisc);
 
 ALTER TABLE PreReq
-ADD CONSTRAINT FK_PREREQ_TEM_DISCIPLINA
+ADD CONSTRAINT FK_TB_preReq_Tem_Disciplina
 FOREIGN KEY(codDeptoPreReq, numDiscPreReq) 
 REFERENCES Disciplina(codDepto, NumDisc);
 
@@ -138,16 +138,16 @@ ADD CONSTRAINT PK_TB_Turma
 PRIMARY KEY(anoSem, CodDepto, NumDisc, SiglaTur);
 
 ALTER TABLE turma
-ADD CONSTRAINT FK_TB_TURMA_DISCIPLINA
+ADD CONSTRAINT FK_TB_turma_TB_Disciplina
 FOREIGN KEY(codDepto, NumDisc) REFERENCES Disciplina(codDepto, NumDisc);
 
 -- ProfTurma
 ALTER TABLE profTurma
-ADD CONSTRAINT PK_TB_prof_Turma
+ADD CONSTRAINT PK_TB_profTurma
 PRIMARY KEY(anoSem, codDepto, numDisc, siglaTur, codProf);
 
 ALTER TABLE profTurma
-ADD CONSTRAINT FK_TB_prof_Turma_professor
+ADD CONSTRAINT FK_TB_profTurma_TB_professor
 FOREIGN KEY(codProf) REFERENCES professor(codProf);
 
 ALTER TABLE profTurma
