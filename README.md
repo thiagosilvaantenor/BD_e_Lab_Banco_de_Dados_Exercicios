@@ -82,7 +82,7 @@ Tarefa:
 - [Tarefa 3](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_03)
 - [Tarefa 4](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_04)
 - [Tarefa 5](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_05)
-- [Tarefa 6](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_06)
+- [Tarefa 6](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_06_lista)
 - [Tarefa 7](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_07)
 
 ## Agradecimentos
