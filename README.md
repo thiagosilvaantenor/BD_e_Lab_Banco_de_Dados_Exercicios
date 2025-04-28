@@ -30,6 +30,11 @@
 
 </div>
 
+`Conteúdos vistos:` 
+- `Revisão SQL: CREATE, UPDATE, DELETE, SELECT, ALTER TABLE, ADD CONSTRAINT, LEFT/RIGHT OUTER JOIN, INNER JOIN e Funções de Agregação`
+- `Stored Procedures e Variáveis em SQL`
+- `Cursor e Loops`
+
 ## Índice
 =================
 <!--ts-->
@@ -51,9 +56,10 @@ Exercicios de SQL da aula de Banco de dados, o SGBD utilizado foi Microsoft SQLS
   - [SQL](https://www.w3schools.com/sql/)
 - SGBD
   - [SQL SERVER 2019](https://www.microsoft.com/pt-br/sql-server/sql-server-2019)
-  - [SQL]
+  - [MySQL] (https://www.mysql.com/)
 - IDE
-  - [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)  
+  - [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
+  - [SQL Workbench] (https://www.mysql.com/products/workbench/) 
 
 # Status do projeto
 ✅ Disciplina de Banco de dados(2024) Completo ✅
@@ -72,6 +78,12 @@ Tarefa:
 
 🚧 Disciplina de Laboratório de Banco de dados(2025) Em andamento 🚧
 - [Tarefa 1](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_01)
+- [Tarefa 2](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_02)
+- [Tarefa 3](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_03)
+- [Tarefa 4](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_04)
+- [Tarefa 5](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_05)
+- [Tarefa 6](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_06)
+- [Tarefa 7](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_07)
 
 ## Agradecimentos
 Agradeço aos professores: <strong> Leandro Colevati (da disciplina de Banco de dados)</strong>,<strong> Joilson de Souza Cardoso (da disciplina de Laboratório de Banco de Dados)</strong><br>
