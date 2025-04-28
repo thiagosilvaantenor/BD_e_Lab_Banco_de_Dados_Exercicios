@@ -56,10 +56,10 @@ Exercicios de SQL da aula de Banco de dados, o SGBD utilizado foi Microsoft SQLS
   - [SQL](https://www.w3schools.com/sql/)
 - SGBD
   - [SQL SERVER 2019](https://www.microsoft.com/pt-br/sql-server/sql-server-2019)
-  - [MySQL] (https://www.mysql.com/)
+  - [MySQL](https://www.mysql.com/)
 - IDE
   - [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
-  - [SQL Workbench] (https://www.mysql.com/products/workbench/) 
+  - [SQL Workbench](https://www.mysql.com/products/workbench/) 
 
 # Status do projeto
 ✅ Disciplina de Banco de dados(2024) Completo ✅
