@@ -187,60 +187,6 @@ FOREIGN KEY(codPred, numSala) REFERENCES Sala(codPred, numSala);
  
 -- INSERTS
 -- Departamento
-INSERT INTO depto (codDepto, nomeDepto) VALUES
-('INF01', 'Administração'),
-('INF02', 'Informática');
- 
--- Disciplina
-INSERT INTO disciplina (codDepto, numDisc, nomeDisc, creditoDisc) VALUES
-('INF02', 1, 'GTE', 500),
-('INF01', 3, 'ADM', 300),
-('INF01', 4, 'SI', 300),
-('INF02', 5, 'AMM', 50),
-('INF02', 2, 'TESTE', 100),
-('INF02', 6, 'GPP', 100);
- 
-INSERT INTO turma (anoSem, codDepto, numDisc, siglaTur, capacTur) VALUES
-(20021, 'INF01', 3, 'TN', 30),
-(20021, 'INF01', 4, 'TN', 30),
-(20021, 'INF02', 5, 'TC', 30),
-(20022, 'INF02', 1, 'TA', 30),
-(20021, 'INF02', 2, 'TA', 30),
-(20021, 'INF02', 6, 'TN', 30),
-(20021, 'INF02', 6, 'TX', 30);
- 
-INSERT INTO titulacao(CodTit, NomeTit) VALUES
-(1, 'Mestre'),
-(2, 'Doutor');
- 
-INSERT INTO professor (codProf, codDepto, codTit, nomeProf) VALUES
-(2, 'INF01', 2, 'Yenneffer'),
-(3, 'INF01', 2, 'Antunes'),
-(4, 'INF01', 2, 'Jessica');
- 
-INSERT INTO profTurma (anoSem, codDepto, numDisc, siglaTur, codProf) VALUES
-(20021, 'INF01', 3, 'TN', 2),
-(20021, 'INF01', 4, 'TN', 3),
-(20021, 'INF02', 5, 'TC', 4),
-(20022, 'INF02', 1, 'TA', 4),
-(20021, 'INF02', 2, 'TA', 3),
-(20021, 'INF02', 6, 'TN', 3),
-(20021, 'INF02', 6, 'TX', 2);
- 
-INSERT INTO predio (codPred, nomePred) VALUES
-(1, 'Principal');
- 
-INSERT INTO sala (codPred, numSala, descricaoSala, capacSala) VALUES
-(1, 9, 'Salão Nobre', 50);
- 
- 
-INSERT INTO horario(anoSem, codDepto, numDisc, siglaTur, diaSem, horaInicio, numSala, codPred, numHoras) VALUES
-(20021, 'INF01', 3, 'TN', 3, 1900, 9, 1, 4),
-(20021, 'INF01', 4, 'TN', 4, 1900, 9, 1, 4),
-(20021, 'INF02', 5, 'TC', 2, 1900, 9, 1, 2),
-(20022, 'INF02', 1, 'TA', 2, 0800, 9, 1, 2),
-(20021, 'INF02', 6, 'TN', 6, 1900, 9, 1, 4),
-(20021, 'INF02', 6, 'TX', 3, 1900, 9, 1, 4);
 -- CRIAR PROCEDURE COM APENAS UMA QUERY DE CURSOR PARA SELECIONAR: Turma C : O nome das disciplinas 
 -- e o nome do professor para as turmas cujo a descrição da sala seja 'Salão Nobre'. 
 -- Listar no máximo 3 disciplinas do Departamento de Informática.
@@ -275,7 +221,7 @@ DECLARE nomeCursor CURSOR FOR
 	
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET final = TRUE;
     
-    CREATE TEMPORARY TABLE tb_nome( t_nomeDisc VARCHAR(10),t_nomeProf VARCHAR(10), t_nomeDepto VARCHAR(40));
+    CREATE TEMPORARY TABLE tb_nome( t_nomeDisc VARCHAR(10),t_nomeProf VARCHAR(40), t_nomeDepto VARCHAR(40));
 -- Executa o CURSOR
     OPEN nomeCursor;
     
@@ -299,3 +245,91 @@ END LOOP;
 END$$
 DELIMITER ;
 CALL obter_nomeDisc_nomeProf_salao_Nobre();
+-- Inserção de dados para a tabela Depto
+INSERT INTO Depto (CodDepto, NomeDepto) VALUES
+('COMP', 'Ciência da Computação'),
+('INFO', 'Informática'),
+('MAT', 'Matemática'),
+('FIS', 'Física');
+
+-- Inserção de dados para a tabela Titulacao
+INSERT INTO Titulacao (CodTit, NomeTit) VALUES
+(1, 'Graduado'),
+(2, 'Mestre'),
+(3, 'Doutor'),
+(4, 'Pós-Doutor');
+
+-- Inserção de dados para a tabela Professor
+INSERT INTO Professor (CodProf, CodDepto, CodTit, NomeProf) VALUES
+(101, 'INFO', 3, 'Dr. João Silva'),
+(102, 'INFO', 2, 'Ms. Maria Santos'),
+(103, 'COMP', 3, 'Dr. Pedro Costa'),
+(104, 'MAT', 2, 'Ms. Ana Pereira'),
+(105, 'INFO', 1, 'Prof. Carlos Rocha'),
+(106, 'COMP', 4, 'Dr. Laura Mendes');
+
+-- Inserção de dados para a tabela Disciplina
+INSERT INTO Disciplina (CodDepto, NumDisc, NomeDisc, CreditoDisc) VALUES
+('INFO', 101, 'Prog. Avan', 60),
+('INFO', 102, 'BD I', 40),
+('INFO', 103, 'SO', 60),
+('INFO', 104, 'Redes', 40),
+('COMP', 201, 'Estr_Dados', 60),
+('COMP', 202, 'Algoritmos', 80),
+('MAT', 301, 'Cálculo I', 80),
+('FIS', 401, 'Física', 60);
+
+
+-- Inserção de dados para a tabela PreReq (exemplo)
+INSERT INTO PreReq (CodDeptoPreReq, NumDiscPreReq, CodDepto, NumDisc) VALUES
+('INFO', 102, 'INFO', 101); -- BD I é pré-requisito para Prog. Avan.
+
+-- Inserção de dados para a tabela Turma
+INSERT INTO Turma (AnoSem, CodDepto, NumDisc, SiglaTur, CapacTur) VALUES
+(20231, 'INFO', 101, 'A', 30),
+(20231, 'INFO', 102, 'B', 25),
+(20231, 'INFO', 103, 'A', 35),
+(20231, 'INFO', 104, 'A', 20),
+(20231, 'COMP', 201, 'C', 40),
+(20231, 'COMP', 202, 'D', 30),
+(20232, 'INFO', 101, 'B', 28),
+(20232, 'INFO', 102, 'A', 22),
+(20232, 'COMP', 201, 'E', 35);
+
+
+-- Inserção de dados para a tabela Predio
+INSERT INTO Predio (CodPred, NomePred) VALUES
+(1, 'Prédio Principal'),
+(2, 'Anexo Tecnológico'),
+(3, 'Centro de Artes');
+
+-- Inserção de dados para a tabela Sala
+INSERT INTO Sala (CodPred, NumSala, DescricaoSala, CapacSala) VALUES
+(1, 101, 'Sala de Aula Comum', 40),
+(1, 102, 'Salão Nobre', 100), -- Sala especial
+(1, 103, 'Laboratório de BD', 25),
+(2, 201, 'Sala de Seminários', 50),
+(2, 202, 'Salão Nobre', 80), -- Outro Salão Nobre em prédio diferente
+(3, 301, 'Atelier de Pintura', 20);
+
+-- Inserção de dados para a tabela Horario
+INSERT INTO Horario (AnoSem, CodDepto, NumDisc, SiglaTur, DiaSem, HoraInicio, NumHoras, CodPred, NumSala) VALUES
+(20231, 'INFO', 101, 'A', 2, 800, 2, 1, 101), -- Seg 8-10, Sala Comum
+(20231, 'INFO', 102, 'B', 3, 1000, 2, 1, 103), -- Ter 10-12, Lab BD
+(20231, 'INFO', 103, 'A', 4, 1400, 3, 1, 102), -- Qua 14-17, Salão Nobre (Disciplina INFO)
+(20231, 'INFO', 104, 'A', 5, 1600, 2, 2, 201), -- Qui 16-18, Sala Seminários
+(20231, 'COMP', 201, 'C', 2, 1400, 3, 2, 202), -- Seg 14-17, Salão Nobre (Disciplina COMP)
+(20231, 'COMP', 202, 'D', 3, 800, 4, 1, 101), -- Ter 8-12, Sala Comum
+(20232, 'INFO', 101, 'B', 2, 1000, 2, 1, 101), -- Segunda turma de Prog. Avan.
+(20232, 'INFO', 102, 'A', 3, 1400, 2, 1, 103);
+
+-- Inserção de dados para a tabela ProfTurma
+INSERT INTO ProfTurma (AnoSem, CodDepto, NumDisc, SiglaTur, CodProf) VALUES
+(20231, 'INFO', 101, 'A', 101), -- Dr. João Silva leciona Prog. Avan.
+(20231, 'INFO', 102, 'B', 102), -- Ms. Maria Santos leciona BD I
+(20231, 'INFO', 103, 'A', 101), -- Dr. João Silva leciona SO (Sala Salão Nobre)
+(20231, 'INFO', 104, 'A', 105), -- Prof. Carlos Rocha leciona Redes
+(20231, 'COMP', 201, 'C', 103), -- Dr. Pedro Costa leciona Estr. Dados (Sala Salão Nobre)
+(20231, 'COMP', 202, 'D', 106), -- Dr. Laura Mendes leciona Algoritmos
+(20232, 'INFO', 101, 'B', 101),
+(20232, 'INFO', 102, 'A', 102);
