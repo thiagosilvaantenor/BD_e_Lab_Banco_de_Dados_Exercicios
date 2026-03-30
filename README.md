@@ -34,6 +34,10 @@
 - `Revisão SQL: CREATE, UPDATE, DELETE, SELECT, ALTER TABLE, ADD CONSTRAINT, LEFT/RIGHT OUTER JOIN, INNER JOIN e Funções de Agregação`
 - `Stored Procedures e Variáveis em SQL`
 - `Cursor e Loops`
+- `Triggers`
+- `Tratamento de exceções`
+- `DeadLock em SQL`
+- `Natural e Theta JOINS`
 
 ## Índice
 =================
@@ -76,14 +80,21 @@ Tarefa:
 - [Tarefa 9](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_09)
 - [Tarefa 10](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_banco_de_dados/tarefa_10)
 
-🚧 Disciplina de Laboratório de Banco de dados(2025) Em andamento 🚧
-- [Tarefa 1](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_01)
-- [Tarefa 2](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_02)
-- [Tarefa 3](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_03)
-- [Tarefa 4](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_04)
-- [Tarefa 5](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_05)
-- [Tarefa 6](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_06_lista)
-- [Tarefa 7](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_07)
+✅ Disciplina de Laboratório de Banco de dados(2025) Completo ✅
+- [Tarefa 1 - Revisao SQL Básico](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_01)
+- [Tarefa 2 - Revisao JOINS, Subconsultas e Cláusula IN](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_02)
+- [Tarefa 3 - Revisão Exercícios de agregação](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_03)
+- [Tarefa 4 - Stored Procedures](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_04)
+- [Tarefa 5 - Criação da tabela modelo](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_05)
+- [Tarefa 6 - Lista de exercícios para Prova 1](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_06_lista)
+- [Prova 1](https://github.com/thiagosilvaantenor/BD_e_Lab_Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/P1)
+- [Tarefa 7 - Correção da prova 1](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_07_correcao_da_prova1)
+- [Tarefa 8 - Triggers](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_08)
+- [Tarefa 9 - Tratamento de exceções](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_09)
+- [Tarefa 10 - Trigger com lançamento de exceção](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_10)
+- [Tarefa 11 - DeadLock em SQL](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_11)
+- [Tarefa 12 - NATURAL e THETA JOIN](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_12)
+
 
 ## Agradecimentos
 Agradeço aos professores: <strong> Leandro Colevati (da disciplina de Banco de dados)</strong>,<strong> Joilson de Souza Cardoso (da disciplina de Laboratório de Banco de Dados)</strong><br>
