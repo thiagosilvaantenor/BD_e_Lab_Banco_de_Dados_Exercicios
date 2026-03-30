@@ -94,6 +94,12 @@ Tarefa:
 - [Tarefa 10 - Trigger com lançamento de exceção](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_10)
 - [Tarefa 11 - DeadLock em SQL](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_11)
 - [Tarefa 12 - NATURAL e THETA JOIN](https://github.com/thiagosilvaantenor/Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/tarefa_12)
+- [Prova 2](https://github.com/thiagosilvaantenor/BD_e_Lab_Banco_de_Dados_Exercicios/tree/main/disciplina_laboratorio_de_banco_de_dados/P2)
+
+  ``Também foi pedido um trabalho que utiliza-se do conhecimento aprendido na disciplina de lab de BD em CRUD(Create Read Update Delete):``<br>
+  ``Uma API e um frontend mobile, obrigatóriamente a API precisava ter: CRUD(Insert, Select, Update e Delete), Uma chamada de Procedure, um relatório(Select com mais de uma linha de resultado)``<br>
+  ``Eu deixei em outro repositório para organizar:``
+- [Trabalho Semestral: CRUD Mobile Receitas e Medicamentos](https://github.com/thiagosilvaantenor/FullStack_Mobile_Receitas_e_Medicamentos_CRUD)
 
 
 ## Agradecimentos
